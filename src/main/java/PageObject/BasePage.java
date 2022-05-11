@@ -42,4 +42,13 @@ public abstract class BasePage {
     protected void assertText(By el, String expectedText) {
         Assert.assertEquals(findElement(el).getText(), expectedText);
     }
+
+    protected void assertTrue(Boolean condition) {
+        Assert.assertTrue(condition);
+    }
+
+    public void clearTextArea(By el) {
+        findElement(el).clear();
+    }
+
 }

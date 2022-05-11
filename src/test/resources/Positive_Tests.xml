@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Lecture_9">
+    <parameter name="config" value="onliner"/>
+
+    <test name="Bounder values in registration password field">
+        <classes>
+            <class name="PositiveTests.Positive_Test"/>
+        </classes>
+    </test>
+</suite>

@@ -14,7 +14,6 @@ public abstract class DriverManager {
         }
     }
 
-
     public static WebDriver getDriver() {
         return driver.get();
     }

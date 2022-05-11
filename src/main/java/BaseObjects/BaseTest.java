@@ -2,15 +2,19 @@ package BaseObjects;
 
 import BaseObjects.WebDriver.DriverManager;
 import BaseObjects.WebDriver.DriverManagerFactory;
+import Utils.Listener;
+import Utils.Properties.PropertyReader;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 
+@Listeners({Listener.class})
 public abstract class BaseTest {
     protected DriverManager driverManager;
     protected WebDriver driver;
@@ -19,7 +23,7 @@ public abstract class BaseTest {
     @BeforeTest
     public void setUp(ITestContext context) {
         this.context = context;
-        this.driverManager = DriverManagerFactory.getManager(DriverManagerType.valueOf(context.getSuite().getParameter("browser").toUpperCase(Locale.ROOT)));
+        this.driverManager = DriverManagerFactory.getManager(DriverManagerType.valueOf(PropertyReader.getProperties().getProperty("browser").toUpperCase(Locale.ROOT)));
         this.driver = DriverManager.getDriver();
     }
 
