@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 import java.util.Properties;
 
-public abstract class BasePage {
+public class BasePage {
     public WebDriver driver;
     public Properties properties;
     public Logger logger;
@@ -21,9 +21,9 @@ public abstract class BasePage {
         this.logger = Logger.getLogger(BasePage.class);
     }
 
-    public BasePage open(String url) {
-        logger.debug("Open " + url);
-        driver.get(url);
+    public BasePage open(String pageName) {
+        logger.debug("Open " + pageName);
+        driver.get(properties.getProperty(pageName + "PageUrl"));
         return this;
     }
 

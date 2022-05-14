@@ -20,11 +20,6 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
-    public RegistrationPage openRegistrationPage() {
-        open(properties.getProperty("registrationPageUrl"));
-        return this;
-    }
-
     public RegistrationPage clearPasswordField() {
         logger.debug("Clear password field");
         clearTextArea(passwordField);

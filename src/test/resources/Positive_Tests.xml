@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Lecture_9">
+<suite name="Positive Tests">
     <parameter name="config" value="onliner"/>
 
     <test name="Bounder values in registration password field">
         <classes>
-            <class name="PositiveTests.Positive_Test"/>
+            <class name="PositiveTests.Positive_Test">
+                <methods>
+                    <include name="boundaryValues_Test">
+                        <parameter name="page" value="registration"/>
+                    </include>
+                    <include name="popupMessage_Test">
+                        <parameter name="page" value="mobileCatalog"/>
+                    </include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
