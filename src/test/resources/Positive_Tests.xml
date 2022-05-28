@@ -3,15 +3,24 @@
 <suite name="Positive Tests">
     <parameter name="config" value="onliner"/>
 
-    <test name="Bounder values in registration password field">
+    <test name="Positive Tests">
         <classes>
             <class name="PositiveTests.Positive_Test">
                 <methods>
                     <include name="boundaryValues_Test">
                         <parameter name="page" value="registration"/>
                     </include>
+                    <include name="dialogWindow_Test">
+                        <parameter name="page" value="mobileCatalog"/>
+                    </include>
                     <include name="popupMessage_Test">
                         <parameter name="page" value="mobileCatalog"/>
+                    </include>
+                    <include name="addProductToCart_Test">
+                        <parameter name="page" value="mobileCatalog"/>
+                    </include>
+                    <include name="removeProductFromCart_Test">
+                        <parameter name="page" value="cart"/>
                     </include>
                 </methods>
             </class>
