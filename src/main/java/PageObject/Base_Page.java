@@ -4,6 +4,7 @@ import BaseObjects.WebDriver.DriverManager;
 import Utils.Properties.PropertyReader;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,11 +18,25 @@ public class Base_Page {
     protected Properties properties;
     protected Logger logger;
     protected WebDriverWait webDriverWait;
+    protected Actions action;
 
     protected Base_Page() {
         this.driver = DriverManager.getDriver();
         this.properties = PropertyReader.getProperties();
         this.logger = Logger.getLogger(Base_Page.class);
+        this.action = new Actions(driver);
+    }
+
+    protected WebDriverWait getWaiter() {
+        this.webDriverWait = (WebDriverWait) new WebDriverWait(this.driver, Duration.ofSeconds(10))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(StaleElementReferenceException.class);
+        return webDriverWait;
+    }
+
+    protected void waitVisibilityOfElement(By el) {
+        getWaiter().until(ExpectedConditions.visibilityOfElementLocated(el));
     }
 
     protected By findByCss(String css) {
@@ -30,10 +45,6 @@ public class Base_Page {
 
     protected By findByXpath(String xpath) {
         return By.xpath(xpath);
-    }
-
-    protected By findByClass(String className) {
-        return By.className(className);
     }
 
     protected By findByPartialLinkText(String text) {
@@ -47,6 +58,7 @@ public class Base_Page {
     }
 
     protected WebElement findElement(By el) {
+        waitVisibilityOfElement(el);
         return driver.findElement(el);
     }
 
@@ -78,20 +90,12 @@ public class Base_Page {
         findElement(el).clear();
     }
 
-    protected WebDriverWait getWaiter() {
-        this.webDriverWait = (WebDriverWait) new WebDriverWait(this.driver, Duration.ofSeconds(10))
-                .ignoring(NoSuchElementException.class)
-                .ignoring(ElementNotInteractableException.class)
-                .ignoring(StaleElementReferenceException.class);
-        return webDriverWait;
-    }
-
-    protected void waitVisibilityOfElement(By el) {
-        getWaiter().until(ExpectedConditions.visibilityOfElementLocated(el));
-    }
-
     protected String getText(By el) {
         return findElement(el).getText();
+    }
+
+    protected void moveToElement(By el) {
+        action.moveToElement(findElement(el)).perform();
     }
 
 }

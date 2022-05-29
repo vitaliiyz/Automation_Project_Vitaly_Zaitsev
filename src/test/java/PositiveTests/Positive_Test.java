@@ -52,9 +52,13 @@ public class Positive_Test extends BaseTest {
                 .checkProductInCart(productName);
     }
 
-    @Test(priority = 5, description = "removing product from cart", enabled = true)
+    @Test(priority = 5, description = "removing product from cart", enabled = true, dependsOnMethods = "addProductToCart_Test")
     public void removeProductFromCart_Test() {
-
+        get(MobileCatalog_Page.class)
+                .removeProductFromCart()
+                .checkTextAfterRemovingProduct("Вы удалили")
+                .clickCloseRemovedProductLink()
+                .checkCartTitleText("Ваша корзина пуста");
     }
 
 }
