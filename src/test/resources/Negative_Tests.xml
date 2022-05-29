@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Onliner Tests">
+    <parameter name="config" value="onliner"/>
+
+    <test name="Negative Tests">
+        <classes>
+            <class name="NegativeTest.Negative_Test">
+                <methods>
+                    <include name="incorrectLogin_Test">
+                        <parameter name="page" value="home"/>
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

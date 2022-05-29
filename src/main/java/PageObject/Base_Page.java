@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 
-public class Base_Page {
+public abstract class Base_Page {
     protected WebDriver driver;
     protected Properties properties;
     protected Logger logger;
