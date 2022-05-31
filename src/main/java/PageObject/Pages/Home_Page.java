@@ -19,13 +19,13 @@ public class Home_Page extends Base_Page {
 
     public Home_Page enterLogin(String login) {
         logger.debug("entering login");
-        enterText(loginInput, login);
+        sendKeys(loginInput, login);
         return this;
     }
 
     public Home_Page enterPassword(String password) {
         logger.debug("entering password");
-        enterText(passwordInput, password);
+        sendKeys(passwordInput, password);
         return this;
     }
 

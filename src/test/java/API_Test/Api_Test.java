@@ -2,7 +2,6 @@ package API_Test;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -32,7 +31,7 @@ public class Api_Test {
     }
 
     @Test(priority = 2, description = "Incorrect login via post request", enabled = true)
-    public void incorrectLogin_test() {
+    public void incorrectLogin_Test() {
         Response response = given().when().header(headerContentType, headerObject)
                 .post("sdapi/user.api/login?login=vitaliiyz&password=qweasdzxc");
 
@@ -52,7 +51,7 @@ public class Api_Test {
     }
 
     @Test(priority = 4, description = "Get cat food for sterilized сat", enabled = true)
-    public void getFoodForSterilizedCat() {
+    public void getFoodForSterilizedCat_Test() {
         Response response = given().when().get("sdapi/catalog.api/search/catfood?mfr[0]=whiskas&typefood4cat[0]=dryfood&typefood4cat[operation]=union&partic_catfood[0]=sterilise&partic_catfood[operation]=union&group=1");
 
         assertStatusCode(response, 200);

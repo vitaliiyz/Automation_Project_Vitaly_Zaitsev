@@ -10,6 +10,9 @@
                     <include name="incorrectLogin_Test">
                         <parameter name="page" value="home"/>
                     </include>
+                    <include name="emailMoreThanAllowedCharacters_Test">
+                        <parameter name="page" value="registration"/>
+                    </include>
                 </methods>
             </class>
         </classes>

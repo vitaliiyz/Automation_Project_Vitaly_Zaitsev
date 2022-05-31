@@ -74,7 +74,7 @@ public abstract class Base_Page {
         findElement(el).click();
     }
 
-    protected void enterText(By el, String text) {
+    protected void sendKeys(By el, String text) {
         findElement(el).sendKeys(text);
     }
 
