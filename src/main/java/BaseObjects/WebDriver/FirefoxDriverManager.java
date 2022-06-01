@@ -12,6 +12,7 @@ public class FirefoxDriverManager extends DriverManager {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
+        chromeOptions.addArguments("--headless");
         WebDriver webDriver = new ChromeDriver(chromeOptions);
         driver.set(webDriver);
     }

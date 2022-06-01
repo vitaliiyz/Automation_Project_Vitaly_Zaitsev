@@ -20,7 +20,7 @@
         <log4j-core.version>2.17.2</log4j-core.version>
         <log4j.version>1.2.17</log4j.version>
         <rest-assured.version>5.0.1</rest-assured.version>
-        <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M6</maven-surefire-plugin.version>
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
@@ -118,13 +118,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar
-                        -Xmx256m
-                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m
+                    </argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
