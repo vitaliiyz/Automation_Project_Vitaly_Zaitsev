@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class Home_Page extends Base_Page {
 
     private final By loginButtonOnHomePage = findByCss(".auth-bar__item--text");
-    private final By loginInput = findByCss("[placeholder='Ник или e-mail']");
+    private final By loginInput = findByCss("[type = text][class ^= auth-input]");
     private final By passwordInput = findByCss("[type=password]");
     private final By loginButton = findByCss(".auth-form__button_width_full");
     private final By loginError = findByCss("[class*='auth-form__description_error']");
@@ -36,6 +36,7 @@ public class Home_Page extends Base_Page {
     }
 
     public Home_Page checkErrorText(String expectedText) {
+        logger.debug("checking error message");
         assertTrue(getText(loginError).contains(expectedText));
         return this;
     }
