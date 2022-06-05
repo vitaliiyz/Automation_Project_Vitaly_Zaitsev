@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="API_Tests">
+<suite name="API_Tests" parallel="tests">
     <parameter name="config" value="onliner"/>
 
-    <test name="API Tests">
+    <test name="Get apple phones in catalog test">
         <classes>
-            <class name="API_Test.Api_Test"/>
+            <class name="API_Test.Api_Test">
+                <methods>
+                    <include name="getAppleInCatalog_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Incorrect login test">
+        <classes>
+            <class name="API_Test.Api_Test">
+                <methods>
+                    <include name="incorrectLogin_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Get laptops on sale test">
+        <classes>
+            <class name="API_Test.Api_Test">
+                <methods>
+                    <include name="getLaptopsOnSale_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Get food for sterilized cat test">
+        <classes>
+            <class name="API_Test.Api_Test">
+                <methods>
+                    <include name="getFoodForSterilizedCat_Test"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

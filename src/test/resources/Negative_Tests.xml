@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Negative_Tests">
+<suite name="Negative_Tests" parallel="tests">
     <parameter name="config" value="onliner"/>
 
-    <test name="Negative Tests">
+    <test name="Incorrect login test">
         <classes>
             <class name="NegativeTest.Negative_Test">
                 <methods>
                     <include name="incorrectLogin_Test">
                         <parameter name="page" value="home"/>
                     </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Email with more than allowed characters">
+        <classes>
+            <class name="NegativeTest.Negative_Test">
+                <methods>
                     <include name="emailMoreThanAllowedCharacters_Test">
                         <parameter name="page" value="registration"/>
                     </include>
@@ -17,5 +26,4 @@
             </class>
         </classes>
     </test>
-
 </suite>

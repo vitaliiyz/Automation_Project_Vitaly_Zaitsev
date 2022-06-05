@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Positive_Tests">
+<suite name="Positive_Tests" parallel="tests">
     <parameter name="config" value="onliner"/>
 
-    <test name="Positive Tests">
+    <test name="Boundary values test">
         <classes>
             <class name="PositiveTests.Positive_Test">
                 <methods>
                     <include name="boundaryValues_Test">
                         <parameter name="page" value="registration"/>
                     </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Dialog window test">
+        <classes>
+            <class name="PositiveTests.Positive_Test">
+                <methods>
                     <include name="dialogWindow_Test">
                         <parameter name="page" value="mobileCatalog"/>
                     </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Popup message test">
+        <classes>
+            <class name="PositiveTests.Positive_Test">
+                <methods>
                     <include name="popupMessage_Test">
                         <parameter name="page" value="mobileCatalog"/>
                     </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Add and remove product from cart tests">
+        <classes>
+            <class name="PositiveTests.Positive_Test">
+                <methods>
                     <include name="addProductToCart_Test">
                         <parameter name="page" value="mobileCatalog"/>
                     </include>
